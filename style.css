@@ -1,0 +1,118 @@
+/* Datepicker Dark Theme */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.datepicker {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+}
+
+.font-semibold {
+    font-weight: 400 !important;
+}
+
+.datepicker-dropdown .datepicker-picker {
+    background-color: #1a202c !important;
+    border: 1px solid #374151 !important;
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.datepicker-dropdown .datepicker-header .datepicker-controls button {
+    color: #e2e8f0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0.25rem 0.5rem !important;
+}
+
+.datepicker-dropdown .datepicker-header .datepicker-controls button svg {
+    color: #e2e8f0 !important;
+}
+
+.datepicker-dropdown .datepicker-header .datepicker-controls button:hover {
+    background-color: #374151 !important;
+}
+
+.datepicker-dropdown .datepicker-footer .clear-btn {
+    background-color: #1a202c !important;
+    color: #e2e8f0 !important;
+}
+
+.datepicker-dropdown .datepicker-footer .clear-btn:hover {
+    background-color: #374151 !important;
+}
+
+@media screen and (max-width: 767px) {
+    .datepicker-dropdown {
+        transform: scale(0.8);
+        transform-origin: top left;
+    }
+}
+
+.datepicker-dropdown .datepicker-picker .day.prev,
+.datepicker-dropdown .datepicker-picker .day.next {
+    opacity: 0.5 !important;
+}
+
+.datepicker-dropdown .datepicker-picker .datepicker-controls .prev-btn[disabled],
+.datepicker-dropdown .datepicker-picker .datepicker-controls .next-btn[disabled],
+.datepicker-dropdown .datepicker-picker .day.disabled,
+.datepicker-dropdown .datepicker-picker .month.disabled,
+.datepicker-dropdown .datepicker-picker .year.disabled {
+    cursor: not-allowed !important;
+    user-select: none;
+    opacity: 0.5 !important;
+}
+
+.datepicker-dropdown .datepicker-picker .day.disabled:hover,
+.datepicker-dropdown .datepicker-picker .month.disabled:hover,
+.datepicker-dropdown .datepicker-picker .year.disabled:hover,
+.datepicker-dropdown .datepicker-picker .datepicker-controls .prev-btn[disabled]:hover,
+.datepicker-dropdown .datepicker-picker .datepicker-controls .next-btn[disabled]:hover {
+    background-color: transparent !important;
+    opacity: 0.5 !important;
+}
+
+.datepicker-dropdown .datepicker-picker .day {
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .day:hover {
+    background-color: #2f343b !important;
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .day.selected:hover {
+    background-color: #2563eb !important;
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .month {
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .month:hover {
+    background-color: #2f343b !important;
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .month.selected:hover {
+    background-color: #2563eb !important;
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .year {
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .year:hover {
+    background-color: #2f343b !important;
+    color: #fff !important;
+}
+
+.datepicker-dropdown .datepicker-picker .year.selected:hover {
+    background-color: #2563eb !important;
+    color: #fff !important;
+}

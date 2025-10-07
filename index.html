@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A custom datepicker for Flowbite that allows for day, month, or year-only selection.">
+    <meta name="keywords" content="datepicker, flowbite, day, month, year, picker, custom, date, month, year, selection, layout, css, styling, vanillajs-datepicker, library">
+    <meta name="author" content="Flowbite">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="twitter:title" content="Flowbite Custom Day|Month|Year Picker">
+    <meta name="twitter:description" content="A custom datepicker for Flowbite that allows for day, month, or year-only selection.">
+    <meta name="twitter:image" content="https://flowbite.com/assets/img/flowbite-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Flowbite Custom Day|Month|Year Picker</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 p-8">
+    <div class="max-w-md mx-auto mb-4">
+        <label for="picker" class="block text-sm font-medium text-gray-300">Select a picker</label>
+        <div class="mt-1 flex items-center space-x-4">
+            <div class="flex items-center">
+                <input type="radio" id="date_wise" name="picker" value="date" class="w-4 h-4 focus:ring-blue-600 focus:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600 picker" checked>
+                <label for="date_wise" class="ml-2 block text-sm text-gray-300">Date</label>
+            </div>
+            <div class="flex items-center">
+                <input type="radio" id="month_wise" name="picker" value="month" class="w-4 h-4 focus:ring-blue-600 focus:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600 picker">
+                <label for="month_wise" class="ml-2 block text-sm text-gray-300">Month</label>
+            </div>
+            <div class="flex items-center">
+                <input type="radio" id="year_wise" name="picker" value="year" class="w-4 h-4 focus:ring-blue-600 focus:ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600 picker">
+                <label for="year_wise" class="ml-2 block text-sm text-gray-300">Year</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-md mx-auto">
+        <div class="mb-4" id="date-field" style="display: none;">
+            <label for="date_picker" class="block text-sm font-medium text-gray-300">Select a date</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                </div>
+                <input id="date_picker"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="DD/MM/YYYY"
+                    class="mt-1 block w-full ps-10 py-2 rounded-md bg-[#1a202c] border-gray-600 text-white focus:border-blue-500 focus:ring-blue-500 block w-full ps-10 p-2.5 @error('month') is-invalid @enderror" />
+            </div>
+        </div>
+
+        <div class="mb-4" id="month-field" style="display: none;">
+            <label for="month_year_picker" class="block text-sm font-medium text-gray-300">Select a month</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                </div>
+                <input id="month_year_picker"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="MM/YYYY"
+                    class="mt-1 block w-full ps-10 py-2 rounded-md bg-[#1a202c] border-gray-600 text-white focus:border-blue-500 focus:ring-blue-500 block w-full ps-10 p-2.5 @error('month') is-invalid @enderror" />
+            </div>
+        </div>
+
+        <div class="mb-4" id="year-field" style="display: none;">
+            <label for="year_picker" class="block text-sm font-medium text-gray-300">Select a year</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                    </svg>
+                </div>
+                <input id="year_picker"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="YYYY"
+                        class="mt-1 block w-full ps-10 py-2 rounded-md bg-[#1a202c] border-gray-600 text-white focus:border-blue-500 focus:ring-blue-500 @error('year') is-invalid @enderror"
+                        placeholder="" />
+            </div>
+        </div>
+
+        <input type="hidden" id="date" name="date" />
+        <input type="hidden" id="month" name="month" />
+        <input type="hidden" id="year" name="year" />
+
+        <div class="mt-6 p-4 bg-gray-800 rounded-lg border border-gray-700">
+            <p class="text-white text-sm mb-2" id="s1">
+                <strong>Selected Date:</strong> <span id="selected_date" class="text-blue-400">None</span>
+            </p>
+            <p class="text-white text-sm mb-2" id="s2">
+                <strong>Selected Month:</strong> <span id="selected_month" class="text-blue-400">None</span>
+            </p>
+            <p class="text-white text-sm mb-2" id="s3">
+                <strong>Selected Year:</strong> <span id="selected_year" class="text-blue-400">None</span>
+            </p>
+            <p class="text-white text-sm" id="s4">
+                <strong>Formatted:</strong> <span id="selected_value" class="text-green-400">None</span>
+            </p>
+        </div>
+
+        <div class="mt-4 p-3 bg-blue-900 border border-blue-700 rounded-lg">
+            <p class="text-blue-200 text-xs">
+                💡 <strong>Tip:</strong> This uses Flowbite's Datepicker with the underlying vanillajs-datepicker
+                configured for <span id="tip">month and year</span> selection.
+            </p>
+            <p class="text-blue-200 text-xs mt-1">
+                📝 <strong>Note:</strong> Users can only select years between 2 years before and 5 years after the current year.
+            </p>
+        </div>
+    </div>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Datepicker JS -->
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
